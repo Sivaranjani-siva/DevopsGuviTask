@@ -1,0 +1,47 @@
+1.Create a directory called ""my_folder"", navigate into it, and create a file named ""my_file.txt"" with some text. Then, create another file named ""another_file.txt"" with some text. Concatenate the content of ""another_file.txt"" to ""my_file.txt"" and display the updated content. Finally, list all files and directories in the current directory.
+
+onprem4@onprem4:~$ cd Siva
+bash: cd: Siva: No such file or directory
+onprem4@onprem4:~$ mkdir siva
+onprem4@onprem4:~$ cd siva
+onprem4@onprem4:~/siva$ mkdir my_folder
+onprem4@onprem4:~/siva$ cd my_folder
+onprem4@onprem4:~/siva/my_folder$ echo "This is the content of my_file.txt." > my_file.txt
+onprem4@onprem4:~/siva/my_folder$ vim my_file.txt 
+onprem4@onprem4:~/siva/my_folder$ cat my_file.txt
+This is the content of my_file.txt.I can change,update and append the content.
+
+onprem4@onprem4:~/siva/my_folder$ cd ..
+onprem4@onprem4:~/siva$ cd my_folder/
+onprem4@onprem4:~/siva/my_folder$ echo "This is the content of another_file.txt." > another_file.txt
+onprem4@onprem4:~/siva/my_folder$ vim another_file.txt 
+onprem4@onprem4:~/siva/my_folder$ cat another_file.txt >> my_file.txt
+onprem4@onprem4:~/siva/my_folder$ cat my_file.txt
+This is the content of my_file.txt.I can change,update and append the content.
+
+This is the content of another_file.txt. We can have any number of data.
+onprem4@onprem4:~/siva/my_folder$ ls
+another_file.txt  my_file.txt
+onprem4@onprem4:~/siva/my_folder$
+
+2.Create 20 files with .txt extensions and rename the first 5 files to .yml extension and Print the latest created top 5 files among the total no of files".
+
+onprem4@onprem4:~/siva$ mkdir create_file
+onprem4@onprem4:~/siva$ cd create_file/
+onprem4@onprem4:~/siva/create_file$ for i in {1..20}; do touch "file$i.txt"; done
+onprem4@onprem4:~/siva/create_file$ ls
+file10.txt  file13.txt  file16.txt  file19.txt  file2.txt  file5.txt  file8.txt
+file11.txt  file14.txt  file17.txt  file1.txt   file3.txt  file6.txt  file9.txt
+file12.txt  file15.txt  file18.txt  file20.txt  file4.txt  file7.txt
+onprem4@onprem4:~/siva/create_file$ for i in {1..5}; do mv "file$i.txt" "file$i.yml"; done
+onprem4@onprem4:~/siva/create_file$ ls
+file10.txt  file13.txt  file16.txt  file19.txt  file2.yml  file5.yml  file8.txt
+file11.txt  file14.txt  file17.txt  file1.yml   file3.yml  file6.txt  file9.txt
+file12.txt  file15.txt  file18.txt  file20.txt  file4.yml  file7.txt
+onprem4@onprem4:~/siva/create_file$ ls -lt | head -n 5
+total 0
+-rw-rw-r-- 1 onprem4 onprem4 0 Jan 22 13:37 file20.txt
+-rw-rw-r-- 1 onprem4 onprem4 0 Jan 22 13:37 file18.txt
+-rw-rw-r-- 1 onprem4 onprem4 0 Jan 22 13:37 file19.txt
+-rw-rw-r-- 1 onprem4 onprem4 0 Jan 22 13:37 file17.txt
+onprem4@onprem4:~/siva/create_file$
